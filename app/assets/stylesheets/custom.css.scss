@@ -1,0 +1,72 @@
+@import "bootstrap";
+
+/* color pallete */
+$tropiteal: #00A8C6;
+$tealDrop: #40C0CB;
+$whiteTrash: #F9F2E7;
+$atomicBikini: #AEE239;
+$feebleWeek: #8FBE00;
+/**/
+
+/* universal */
+html {
+	overflow-y: scroll;
+}
+body {
+	padding-top: 60px;
+	background-color: $whiteTrash;
+}
+section {
+	overflow: auto;
+}
+textarea {
+	resize: vertical;
+}
+.center {
+	text-align: center;
+}
+
+/* custom header */
+header{
+	.navbar-inner {
+		background: #aee239; /* Old browsers */
+		background: -moz-linear-gradient(top,  #aee239 0%, #aee239 50%, #8fbe00 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aee239), color-stop(50%,#aee239), color-stop(100%,#8fbe00)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #aee239 0%,#aee239 50%,#8fbe00 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #aee239 0%,#aee239 50%,#8fbe00 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #aee239 0%,#aee239 50%,#8fbe00 100%); /* IE10+ */
+		background: linear-gradient(to bottom,  #aee239 0%,#aee239 50%,#8fbe00 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#aee239', endColorstr='#8fbe00',GradientType=0 ); /* IE6-9 */
+		
+	}
+	/* typography */
+	h1{
+		color: $white;
+	}
+}
+
+/* custom footer */
+footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid #eaeaea;
+	color: #999;
+	a {
+		color: #555;
+		&:hover {
+			color: #222;
+		}
+	}
+	small {
+		float: left;
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 10px;
+			margin-right: 20px;
+		}
+	}
+}
