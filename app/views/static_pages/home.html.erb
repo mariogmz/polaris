@@ -1,1 +1,5 @@
-HOME
+<div class="container-main">
+	<% if !user_signed_in? %>
+		<%= link_to 'Iniciar sesión', sign_in_path, class: "btn btn-large btn-primary sign-in" %>
+	<% end %>
+</div>

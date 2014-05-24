@@ -25,6 +25,9 @@ textarea {
 .center {
 	text-align: center;
 }
+.container-flash {
+	margin-top: 60px;
+}
 
 /* custom header */
 header{
@@ -40,8 +43,12 @@ header{
 		
 	}
 	/* typography */
-	h1{
+	h1 {
 		color: $white;
+	}
+	/* elements */
+	.hero {
+		padding: -5px;
 	}
 }
 
@@ -69,4 +76,9 @@ footer {
 			margin-right: 20px;
 		}
 	}
+}
+
+/* home */
+.container-main {
+	margin-top: 100px;
 }

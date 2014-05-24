@@ -1,4 +1,9 @@
 Polaris::Application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    match "sign_in", to: "devise/sessions#new", via: :get
+    match "sign_out", to: "devise/sessions#destroy", via: :get
+  end
   root "static_pages#home"
   match 'acercade', to: 'static_pages#about', via: :get
   match 'contacto', to: 'static_pages#contact', via: :get
