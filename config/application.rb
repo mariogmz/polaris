@@ -11,6 +11,11 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+#http://strandcode.com/2013/08/11/security-is-a-feature-9-newb-friendly-steps-to-secure-your-rails-apps/
+if Rails.env.development?
+  ENV.update YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
+end
+
 module Polaris
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -23,12 +28,8 @@ module Polaris
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.available_locales = ['es-MX', :es]
     config.i18n.default_locale = :es
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    
-    #http://strandcode.com/2013/08/11/security-is-a-feature-9-newb-friendly-steps-to-secure-your-rails-apps/
-    if Rails.env.development?
-      ENV.update YAML.load(File.read(File.expand_path('../application.yml', __FILE__)))
-    end
   end
 end

@@ -38,9 +38,9 @@ Polaris::Application.configure do
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     address: "smtp.gmail.com",
-    :port => 587,
-    :authentication => "plain"
-    :user_name => ENV["GMAIL_USERNAME"],
-    :password => ENV["GMAIL_PASSWORD"]
+    port: 587,
+    authentication: "plain",
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 end
