@@ -1,5 +1,7 @@
-<div class="container-main">
+<div class="main-container">
 	<% if !user_signed_in? %>
-		<%= link_to 'Iniciar sesión', sign_in_path, class: "btn btn-large btn-primary sign-in" %>
+		<div class="login-btn-container">
+				<%= link_to 'Iniciar sesión', sign_in_path, class: "btn btn-large btn-primary pull-center" %>	
+		</div>
 	<% end %>
 </div>

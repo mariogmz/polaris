@@ -28,6 +28,19 @@ textarea {
 .container-flash {
 	margin-top: 60px;
 }
+.pull-center {
+	margin-left: auto;
+	margin-right: auto;
+	float: center;
+};
+
+/* application */
+.application-container {
+	float: center;
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+};
 
 /* custom header */
 header{
@@ -79,6 +92,6 @@ footer {
 }
 
 /* home */
-.container-main {
-	margin-top: 100px;
+.main-container {
+	margin-top: auto;
 }
