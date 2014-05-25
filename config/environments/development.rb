@@ -34,4 +34,13 @@ Polaris::Application.configure do
   # http://strandcode.com/2013/08/11/security-is-a-feature-9-newb-friendly-steps-to-secure-your-rails-apps/
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
+  
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: "smtp.gmail.com",
+    :port => 587,
+    :authentication => "plain"
+    :user_name => ENV["GMAIL_USERNAME"],
+    :password => ENV["GMAIL_PASSWORD"]
+  }
 end
