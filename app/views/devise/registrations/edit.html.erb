@@ -1,29 +1,51 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="well">
+	<h2 class="center">Editar cuenta</h2><br /><br />
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
+	  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+	  <div class="control-group">
+		  <%= f.label "Correo electrónico", class: "control-label", for: "inputEmail" %>
+		  <div class="controls">
+			  <%= f.email_field :email, autofocus: true, id: "inputEmail", placeholder: "Correo electrónico" %>
+		  </div>
+	  </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+	  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+	    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+	  <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+	  <div class="control-group">
+		  <%= f.label "Nueva contraseña", class: "control-label", for: "inputPassword1" %>
+		  <div class="controls">
+			  <%= f.password_field :password, autocomplete: "off", id: "inputPassword1", placeholder: "Nueva contraseña" %><br />
+			  <i>(dejar en blanco si no deseas cambiarla)</i>
+		  </div>
+	  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+	  <div class="control-group">
+		  <%= f.label "Confirmar contraseña", class: "control-label", for: "inputPassword2" %>
+		  <div class="controls">
+		  	<%= f.password_field :password_confirmation, autocomplete: "off", id: "inputPassword2", placeholder: "Confirmar contraseña" %>
+		  </div>
+	  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
+	  <div class="control-group">
+		  <%= f.label "Contraseña actual", class: "control-label", for: "currentPassword" %>
+		  <div class="controls">
+		  	  <%= f.password_field :current_password, autocomplete: "off", id: "currentPassword", placeholder: "Contraseña actual" %><br />
+			  <i>(necesitamos tu contraseña actual para confirmar tus cambios)</i>
+		  </div>
+	  </div>
+	  <br/><br/>
+	  <div class="center"><%= f.submit "Actualizar", class: "btn btn-info" %></div>
+	<% end %>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+	<hr>
+	<div class="">
+		<h3>Insatisfecho?</h3>
+		<p><%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+	</div>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+	<%= link_to "Back", :back %>
+</div>
