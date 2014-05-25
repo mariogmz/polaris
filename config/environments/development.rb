@@ -14,7 +14,7 @@ Polaris::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -29,4 +29,9 @@ Polaris::Application.configure do
   
   #devise
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  
+  # securing 
+  # http://strandcode.com/2013/08/11/security-is-a-feature-9-newb-friendly-steps-to-secure-your-rails-apps/
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
 end
