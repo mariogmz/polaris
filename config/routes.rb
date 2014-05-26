@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Polaris::Application.routes.draw do
   devise_for :users
   root "static_pages#home"
@@ -11,6 +13,17 @@ Polaris::Application.routes.draw do
   end
   match 'acercade', to: 'static_pages#about', via: :get
   match 'contacto', to: 'static_pages#contact', via: :get
+  namespace :api, defaults: { format: 'json' } do
+    # match 'create', to: "registrations#create", via: :post
+    # match 'login', to: "sessions#create", via: :post
+    # match 'logout', to: "sessions#destroy", via: :destroy
+    # devise_for :users
+    devise_scope :user do
+      post 'create' => "registrations#create"
+      post 'login' => 'sessions#create'
+      delete 'logout' => 'sessions#destroy'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
