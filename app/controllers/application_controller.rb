@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
     # timing attacks.
     if user
       sign_in user
+      redirect_to root_path
     end
   end
 end
