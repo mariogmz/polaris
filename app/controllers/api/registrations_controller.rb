@@ -3,8 +3,11 @@ class Api::RegistrationsController < Devise::RegistrationsController
   
   respond_to :json
   def register
-    # If the user is signed in then (s)he cannot create any more accounts until signed of
-    return if user_signed_in?
+    # If the user is signed in then (s)he cannot create any more accounts until signed 
+    if user_signed_in?
+      render json: {success: false, message: "Ya iniciaste sesión"}, status: 418
+      return
+    end
 
     user = User.new(user_params)
     if user.save
