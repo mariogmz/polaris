@@ -19,7 +19,7 @@ Polaris::Application.routes.draw do
     # match 'logout', to: "sessions#destroy", via: :destroy
     # devise_for :users
     devise_scope :user do
-      post 'create' => "registrations#create"
+      post 'register' => "registrations#register"
       post 'login' => 'sessions#create'
       delete 'logout' => 'sessions#destroy'
     end
