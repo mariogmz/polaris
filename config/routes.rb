@@ -13,6 +13,7 @@ Polaris::Application.routes.draw do
   end
   match 'acercade', to: 'static_pages#about', via: :get
   match 'contacto', to: 'static_pages#contact', via: :get
+  match 'secret', to: 'static_pages#secret', via: [:get,:post]
   namespace :api, defaults: { format: 'json' } do
     # match 'create', to: "registrations#create", via: :post
     # match 'login', to: "sessions#create", via: :post
