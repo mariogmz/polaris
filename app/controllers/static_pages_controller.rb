@@ -24,6 +24,7 @@ class StaticPagesController < ApplicationController
     # If the user isn't signed in, look for auth_token param and check against database
     user_token = params[:auth_token].presence
     user = User.find_by_authentication_token user_token.to_s
+    sign_in user
     if not user
       redirect_to root_path, alert: "Invalid authentication token"
     end
