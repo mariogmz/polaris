@@ -1,7 +1,7 @@
 require 'api_constraints'
 
 Polaris::Application.routes.draw do
-  resources :recordatorios
+  resources :recordatorios, only: [:new, :create, :destroy, :edit]
 
   devise_for :users
   root "static_pages#home"

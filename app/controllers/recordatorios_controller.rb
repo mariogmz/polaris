@@ -1,24 +1,30 @@
 class RecordatoriosController < ApplicationController
   before_action :set_recordatorio, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /recordatorios
   # GET /recordatorios.json
-  def index
-    @recordatorios = Recordatorio.all
-  end
+  # def index
+    # @recordatorios = Recordatorio.all
+  # end
 
   # GET /recordatorios/1
   # GET /recordatorios/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /recordatorios/new
   def new
-    @recordatorio = Recordatorio.new
+    # @recordatorio = Recordatorio.new
+    @recordatorio = current_user.recordatorios.build
   end
 
   # GET /recordatorios/1/edit
   def edit
+    if not @recordatorio.user_id.eql? current_user.id
+      flash[:alert] = "No estas autorizado para editar este registro"
+      redirect_to root_url
+    end
   end
 
   # POST /recordatorios
@@ -28,7 +34,7 @@ class RecordatoriosController < ApplicationController
 
     respond_to do |format|
       if @recordatorio.save
-        format.html { redirect_to @recordatorio, notice: 'Recordatorio was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Recordatorio was successfully created.' }
         format.json { render action: 'show', status: :created, location: @recordatorio }
       else
         format.html { render action: 'new' }
@@ -56,7 +62,7 @@ class RecordatoriosController < ApplicationController
   def destroy
     @recordatorio.destroy
     respond_to do |format|
-      format.html { redirect_to recordatorios_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

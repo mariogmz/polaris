@@ -1,5 +1,14 @@
 <div class="main-container">
-	<% if !user_signed_in? %>
+	<% if user_signed_in? %>
+		<%= link_to "Agregar algo que prestaste", new_recordatorio_path, class: "btn btn-large btn-info" %>	
+		<% if current_user.recordatorios.any? %>
+		<%= render 'shared_views/show' %>
+		<% else %>
+		<div class="well">
+			<p class="hero">Nadie tiene algo tuyo prestado! Felicidades!!</p>
+		</div>
+		<% end %>
+	<% else %>
 		<div class="login-btn-container">
 				<%= link_to 'Iniciar sesión', signin_path, class: "btn btn-large btn-primary pull-center" %>	
 		</div>
