@@ -2,7 +2,7 @@
 <div class="well">
 	<ul>
 		<% recordatorios.each do |r| %>
-		<li><%= link_to "ø", edit_recordatorio_path(r) %>-<%= r.fecha_prestamo %> | <%= r.fecha_entrega %> | <%= r.contacto %> | <%= r.concepto %> | <%= r.detalle %> <% if r.regresado then %> OK <% else %> Not OK <% end %> </li>
+		<li><%= link_to "ø", edit_recordatorio_path(r) %>  <%= r.fecha_prestamo %> | <%= r.fecha_entrega %> | <%= r.contacto %> | <%= r.concepto %> | <%= r.detalle %> <% if r.regresado then %> OK <% else %> Not OK <% end %> :: <%= r.lat.to_s %> : <%= r.long.to_s %><%=%></li>
 		<% end %>
 	</ul>
 	

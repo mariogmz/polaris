@@ -8,6 +8,8 @@ class Recordatorio < ActiveRecord::Base
   validates :contacto, presence: true, length: { maximum: 100 }
   validates :concepto, presence: true, length: { maximum: 100 }
   validates :detalle, presence: false
+  validates :lat, presence: false
+  validates :long, presence: false
   
   private
   # If regresado field comes nil => set as false

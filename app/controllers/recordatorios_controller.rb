@@ -75,6 +75,6 @@ class RecordatoriosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recordatorio_params
-      params.require(:recordatorio).permit(:user_id, :fecha_prestamo, :fecha_entrega, :contacto, :concepto, :detalle, :regresado)
+      params.require(:recordatorio).permit(:user_id, :fecha_prestamo, :fecha_entrega, :contacto, :concepto, :detalle, :regresado, :lat, :long)
     end
 end
