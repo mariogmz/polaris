@@ -1,0 +1,39 @@
+<h1>Listing recordatorios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Fecha prestamo</th>
+      <th>Fecha entrega</th>
+      <th>Contacto</th>
+      <th>Concepto</th>
+      <th>Detalle</th>
+      <th>Regresado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @recordatorios.each do |recordatorio| %>
+      <tr>
+        <td><%= recordatorio.user_id %></td>
+        <td><%= recordatorio.fecha_prestamo %></td>
+        <td><%= recordatorio.fecha_entrega %></td>
+        <td><%= recordatorio.contacto %></td>
+        <td><%= recordatorio.concepto %></td>
+        <td><%= recordatorio.detalle %></td>
+        <td><%= recordatorio.regresado %></td>
+        <td><%= link_to 'Show', recordatorio %></td>
+        <td><%= link_to 'Edit', edit_recordatorio_path(recordatorio) %></td>
+        <td><%= link_to 'Destroy', recordatorio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Recordatorio', new_recordatorio_path %>

@@ -1,0 +1,45 @@
+<%= form_for(@recordatorio) do |f| %>
+  <% if @recordatorio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recordatorio.errors.count, "error") %> prohibited this recordatorio from being saved:</h2>
+
+      <ul>
+      <% @recordatorio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_prestamo %><br>
+    <%= f.date_select :fecha_prestamo %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_entrega %><br>
+    <%= f.date_select :fecha_entrega %>
+  </div>
+  <div class="field">
+    <%= f.label :contacto %><br>
+    <%= f.text_field :contacto %>
+  </div>
+  <div class="field">
+    <%= f.label :concepto %><br>
+    <%= f.text_field :concepto %>
+  </div>
+  <div class="field">
+    <%= f.label :detalle %><br>
+    <%= f.text_field :detalle %>
+  </div>
+  <div class="field">
+    <%= f.label :regresado %><br>
+    <%= f.check_box :regresado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

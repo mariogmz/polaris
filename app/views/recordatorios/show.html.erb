@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @recordatorio.user_id %>
+</p>
+
+<p>
+  <strong>Fecha prestamo:</strong>
+  <%= @recordatorio.fecha_prestamo %>
+</p>
+
+<p>
+  <strong>Fecha entrega:</strong>
+  <%= @recordatorio.fecha_entrega %>
+</p>
+
+<p>
+  <strong>Contacto:</strong>
+  <%= @recordatorio.contacto %>
+</p>
+
+<p>
+  <strong>Concepto:</strong>
+  <%= @recordatorio.concepto %>
+</p>
+
+<p>
+  <strong>Detalle:</strong>
+  <%= @recordatorio.detalle %>
+</p>
+
+<p>
+  <strong>Regresado:</strong>
+  <%= @recordatorio.regresado %>
+</p>
+
+<%= link_to 'Edit', edit_recordatorio_path(@recordatorio) %> |
+<%= link_to 'Back', recordatorios_path %>

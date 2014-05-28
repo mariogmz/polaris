@@ -1,6 +1,8 @@
 require 'api_constraints'
 
 Polaris::Application.routes.draw do
+  resources :recordatorios
+
   devise_for :users
   root "static_pages#home"
   devise_scope :user do
