@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-    <%= @recordatorio.user_id	 %> | <%= current_user.id %>
 	<%= hidden_field(:recordatorio, :user_id) %>
 	<%= hidden_field(:recordatorio, :regresado, options: {checked: false})%>
 	<br />
@@ -35,6 +34,10 @@
 		<%= f.text_field :detalle %>
 	</div>
 	<div class="actions">
-		<%= f.submit "Agregar!", class: "btn btn-large btn-warning" %>
+		<% if controller.action_name.to_s.eql? "edit" %>
+			<%= f.submit "Editar!", class: "btn btn-large btn-warning" %>
+		<% else %>
+			<%= f.submit "Agregar!", class: "btn btn-large btn-warning" %>
+		<% end %>
 	</div>
 <% end %>

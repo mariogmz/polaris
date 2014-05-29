@@ -1,7 +1,7 @@
 require 'api_constraints'
 
 Polaris::Application.routes.draw do
-  resources :recordatorios, only: [:new, :create, :destroy, :edit]
+  resources :recordatorios, only: [:new, :create, :destroy, :edit, :update]
 
   devise_for :users
   root "static_pages#home"
@@ -26,6 +26,7 @@ Polaris::Application.routes.draw do
       post 'login' => 'sessions#create'
       delete 'logout' => 'sessions#destroy'
     end
+    resources :reminders, only: [:create, :update, :destroy, :index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
