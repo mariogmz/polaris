@@ -21,17 +21,17 @@ class Api::SessionsController < Devise::SessionsController
     # resource = User.find_for_database_authentication(:email => params[:user_login][:email])
     # resource.authentication_token = nil
     # resource.save
-    if user_signed_in?
-      if current_user.email.eql? params[:user_login]
-        current_user.reset_authentication_token!
-        sign_out current_user
-        render :json=> {:success=>true}, status: :ok
-      else
-        render :json => {success: false, message: "Not correct user"}, status: 403
-      end
+    # if user_signed_in?
+    if current_user.email.eql? params[:user_login]
+      current_user.reset_authentication_token!
+      sign_out current_user
+      render :json=> {:success=>true}, status: :ok
     else
-      render :json => {success: false, message: "Not signed in"}, status: 403
-    end 
+      render :json => {success: false, message: "Not correct user"}, status: 403
+    end
+      # else
+      #  render :json => {success: false, message: "Not signed in"}, status: 403
+      # end 
   end
 
   protected
